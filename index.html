@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Animated Header with Social Links</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 35%, #0f3460 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+/* Ultra-Compact Mobile Header */
+.header {
+    background: linear-gradient(-45deg, #ff6b6b, #4ecdc4, #45b7d1);
+    background-size: 300% 300%; /* Smaller gradient area */
+    animation: gradientShift 10s ease-in-out infinite; /* Slower animation */
+    padding: 25px 0; /* Very compact padding */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Simplified gradient animation */
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Minimal particles for mobile */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.2) 1px, transparent 1px),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.2) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.3;
+}
+
+/* Remove shine effect on mobile completely */
+.header::after {
+    display: none;
+}
+
+.header-content {
+    max-width: 95%; /* Tighter content area */
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2; /* Lower z-index for performance */
+    padding: 0 10px;
+}
+
+.header h1 {
+    color: white;
+    font-size: 1.8rem; /* Much smaller heading */
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(255,255,255,0.4);
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #fff, #f8f9fa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Remove animation for performance */
+    animation: none;
+}
+
+.header p {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.9rem; /* Very compact text */
+    font-weight: 300;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    letter-spacing: normal;
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    /* Remove animation for performance */
+    animation: none;
+}
+
+.header p::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+    /* Remove animation for performance */
+    animation: none;
+}
+
+/* Completely remove decorative elements on mobile */
+.header-decoration {
+    display: none;
+}
+
+/* Tablet (small desktop) styles */
+@media (min-width: 600px) {
+    .header {
+        padding: 35px 0;
+    }
+    
+    .header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .header p {
+        font-size: 1rem;
+    }
+}
+
+/* Proper desktop styles */
+@media (min-width: 900px) {
+    .header {
+        padding: 60px 0;
+        background: linear-gradient(-45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff);
+        background-size: 400% 400%;
+    }
+    
+    .header h1 {
+        font-size: 3rem;
+        animation: titleGlow 2s ease-in-out infinite alternate;
+    }
+    
+    .header p {
+        font-size: 1.2rem;
+        animation: fadeInUp 1.5s ease-out 0.5s both;
+    }
+    
+    .header p::after {
+        animation: lineExpand 2s ease-out 1s both;
+    }
+    
+    /* Restore shine effect */
+    .header::after {
+        display: block;
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(transparent, rgba(255,255,255,0.1), transparent);
+        animation: rotate 10s linear infinite;
+        pointer-events: none;
+    }
+    
+    /* Enhanced particles */
+    .header::before {
+        background-image: 
+            radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 1px, transparent 1px),
+            radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 1px, transparent 1px);
+        background-size: 150px 150px;
+        opacity: 0.4;
+    }
+}
+
+/* Full desktop experience */
+@media (min-width: 1200px) {
+    .header {
+        padding: 80px 0;
+    }
+    
+    .header h1 {
+        font-size: 4rem;
+    }
+    
+    .header p {
+        font-size: 1.4rem;
+    }
+    
+    /* Full decorative elements */
+    .header-decoration {
+        display: block;
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border: 2px solid rgba(255,255,255,0.1);
+        border-radius: 50%;
+        animation: spin 15s linear infinite;
+    }
+    
+    /* Full particle effect */
+    .header::before {
+        background-image: 
+            radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 2px, transparent 2px),
+            radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 1px, transparent 1px),
+            radial-gradient(circle at 40% 80%, rgba(255,255,255,0.4) 1.5px, transparent 1.5px);
+        background-size: 200px 200px;
+        opacity: 0.6;
+    }
+}
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(255,255,255,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        /* Academic Journey Section */
+        .academic-section {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 80px 0;
+        }
+
+        .academic-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .academic-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #4ecdc4, #45b7d1, #ff6b6b);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding-left: 80px;
+            animation: fadeInUp 1s ease-out both;
+        }
+
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.4s; }
+
+        .timeline-marker {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            border: 3px solid rgba(255,255,255,0.2);
+            box-shadow: 0 0 20px rgba(78,205,196,0.5);
+        }
+
+        .timeline-content {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .timeline-content h3 {
+            color: #4ecdc4;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-date {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .timeline-details {
+            margin-top: 15px;
+        }
+
+        .timeline-details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-details li {
+            padding: 8px 0;
+            border-left: 3px solid rgba(78,205,196,0.3);
+            padding-left: 15px;
+            margin-bottom: 5px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .timeline-details li.highlight {
+            background: rgba(255,107,107,0.1);
+            border-left-color: #ff6b6b;
+            border-radius: 5px;
+            padding: 12px 15px;
+            font-weight: 600;
+        }
+
+        .timeline-details li.special-info {
+            background: rgba(255,193,7,0.1);
+            border-left-color: #feca57;
+            border-radius: 5px;
+            padding: 12px 15px;
+            font-style: italic;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Projects Showcase Section */
+        .projects-showcase {
+            background: rgba(0,0,0,0.2);
+            padding: 80px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .project-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .project-card h3 {
+            color: #4ecdc4;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, rgba(69,183,209,0.2), rgba(78,205,196,0.2));
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .projects-progress {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .projects-progress h3 {
+            color: #feca57;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .projects-progress p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background: rgba(255,255,255,0.02);
+            padding: 80px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .skill-category-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .skill-category-card h3 {
+            color: #45b7d1;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .skill-category-card p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+
+        /* About Me Section */
+        .about-section {
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 80px 0;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255,255,255,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .about-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-size: 1.1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 15px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .contact-icon {
+            font-size: 1.2rem;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .about-description {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .about-description p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .info-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .info-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(78,205,196,0.2));
+            padding: 25px 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h3 {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .years {
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .card-content {
+            padding: 30px;
+            color: white;
+        }
+
+        .projects-section {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .projects-section h5 {
+            color: #feca57;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .project-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-item:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .project-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-item:hover::before {
+            opacity: 1;
+        }
+
+        .project-name {
+            display: block;
+            color: #4ecdc4;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .project-desc {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            line-height: 1.3;
+        }
+
+        .education-item li.piscine-info {
+            background: rgba(255,193,7,0.1);
+            border-left-color: #feca57;
+            border-radius: 5px;
+            padding: 12px 15px;
+            font-style: italic;
+            color: rgba(255,255,255,0.9);
+            margin-top: 5px;
+        }
+
+        .education-item h4 {
+            color: #4ecdc4;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .education-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .education-item li {
+            padding: 8px 0;
+            border-left: 3px solid rgba(78,205,196,0.3);
+            padding-left: 15px;
+            margin-bottom: 5px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .education-item li.highlight {
+            background: rgba(255,107,107,0.1);
+            border-left-color: #ff6b6b;
+            border-radius: 5px;
+            padding: 12px 15px;
+            font-weight: 600;
+        }
+
+		/* Piscine Projects Styles */
+.piscine-projects {
+    margin-top: 25px;
+}
+
+.piscine-category {
+    margin-bottom: 30px;
+}
+
+.piscine-category h4 {
+    color: #feca57;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 5px;
+}
+
+.piscine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.piscine-item {
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.piscine-name {
+    display: block;
+    color: #4ecdc4;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.piscine-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.piscine-bar {
+    height: 6px;
+    background: linear-gradient(90deg, #4ecdc4, #45b7d1);
+    border-radius: 3px;
+    flex-grow: 1;
+}
+
+.piscine-percent {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.8);
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .piscine-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .piscine-item {
+        padding: 10px 12px;
+    }
+}
+
+        .skills-category {
+            margin-bottom: 25px;
+        }
+
+        .skills-category h4 {
+            color: #45b7d1;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, rgba(69,183,209,0.2), rgba(78,205,196,0.2));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, rgba(69,183,209,0.4), rgba(78,205,196,0.4));
+            box-shadow: 0 5px 15px rgba(69,183,209,0.3);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .experience-item {
+            background: rgba(255,255,255,0.03);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-5px);
+        }
+
+        .experience-item h4 {
+            color: #feca57;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .experience-item p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .social-section h2 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 50px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out 0.6s both;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* Enhanced Social Media Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            padding: 25px 20px;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            min-width: 140px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
+        }
+
+        .social-link:hover {
+            transform: translateY(-15px) scale(1.08);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .social-link:hover .social-icon::after {
+            opacity: 1;
+        }
+
+        .instagram { 
+            background: linear-gradient(135deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+            box-shadow: 0 8px 25px rgba(240, 148, 51, 0.4);
+        }
+        .linkedin { 
+            background: linear-gradient(135deg, #0077b5, #005885); 
+            box-shadow: 0 8px 25px rgba(0, 119, 181, 0.4);
+        }
+        .facebook { 
+            background: linear-gradient(135deg, #1877f2, #0d5cb3); 
+            box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4);
+        }
+        .youtube { 
+            background: linear-gradient(135deg, #ff0000, #cc0000); 
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+        }
+        .twitter { 
+            background: linear-gradient(135deg, #1da1f2, #0d8bd9); 
+            box-shadow: 0 8px 25px rgba(29, 161, 242, 0.4);
+        }
+        .github { 
+            background: linear-gradient(135deg, #333, #1a1a1a); 
+            box-shadow: 0 8px 25px rgba(51, 51, 51, 0.4);
+        }
+
+        .social-link:hover .social-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .social-name {
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 60px 0;
+            }
+            
+            .header h1 {
+                font-size: 3rem;
+            }
+            
+            .header p {
+                font-size: 1.1rem;
+            }
+            
+            .about-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .contact-item {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+            
+            .about-description p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .academic-timeline::before {
+                left: 15px;
+            }
+            
+            .timeline-item {
+                padding-left: 50px;
+            }
+            
+            .timeline-marker {
+                left: 5px;
+                width: 15px;
+                height: 15px;
+            }
+            
+            .timeline-content {
+                padding: 20px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .project-card {
+                padding: 25px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .skill-category-card {
+                padding: 25px;
+            }
+            
+            .social-section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .social-links {
+                gap: 25px;
+            }
+            
+            .social-link {
+                min-width: 120px;
+                padding: 20px 15px;
+            }
+        }
+            
+            .contact-item {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+            
+            .about-description p {
+                font-size: 1.1rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .card-content {
+                padding: 20px;
+            }
+
+			/* Add these styles to your existing CSS */
+/* Add these styles to your existing CSS */
+.skill-item {
+    margin-bottom: 20px;
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.skill-percent {
+    background: rgba(255,255,255,0.15);
+    padding: 2px 10px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    min-width: 45px;
+    text-align: center;
+}
+
+.progress-bar {
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 1s ease-out;
+}
+
+.skill-note {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+    font-style: italic;
+    margin-top: 3px;
+}
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .project-item {
+                padding: 10px 12px;
+            }
+            
+            .experience-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .social-section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .social-links {
+                gap: 25px;
+            }
+            
+            .social-link {
+                min-width: 120px;
+                padding: 20px 15px;
+            }
+        
+
+        /* Enhanced Floating Animation */
+        @keyframes floatEnhanced {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-8px) rotate(1deg); }
+            50% { transform: translateY(-15px) rotate(0deg); }
+            75% { transform: translateY(-8px) rotate(-1deg); }
+        }
+
+        .social-link:nth-child(1) { animation: floatEnhanced 4s ease-in-out infinite; }
+        .social-link:nth-child(2) { animation: floatEnhanced 4s ease-in-out infinite 0.5s; }
+        .social-link:nth-child(3) { animation: floatEnhanced 4s ease-in-out infinite 1s; }
+        .social-link:nth-child(4) { animation: floatEnhanced 4s ease-in-out infinite 1.5s; }
+        .social-link:nth-child(5) { animation: floatEnhanced 4s ease-in-out infinite 2s; }
+        .social-link:nth-child(6) { animation: floatEnhanced 4s ease-in-out infinite 2.5s; }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Animated Header -->
+    <header class="header">
+        <div class="header-decoration"></div>
+        <div class="header-decoration"></div>
+        <div class="header-content">
+            <h1>Welcome to My World</h1>
+            <p>Where creativity meets innovation</p>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <div class="about-section">
+        <div class="container">
+            <div class="about-header">
+                <h2 class="about-title">Ali Rida Mohammad Areslan</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span>aliridaareslan@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <span>(+961) 70/746236</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <div class="about-description">
+                    <p>I am a passionate and driven professional committed to continuous learning and mastery in my field. With an insatiable curiosity, I thrive on pushing boundaries, embracing challenges, and staying at the cutting edge of innovation. </p>
+                    <p>My goal is to deepen my expertise and contribute meaningful solutions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 42 Beirut Curriculum Section -->
+<div class="academic-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">💻 42 Beirut Curriculum</h2>
+            <p class="section-subtitle">Mastering low-level programming through project-based learning</p>
+        </div>
+        
+        <div class="academic-timeline">
+            <!-- Piscine Section -->
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>42 Piscine (Coding Bootcamp)</h3>
+					 <span class="timeline-date">April 7 - May 2</span>
+					 <br>
+	                    <div class="timeline-details">
+                        
+                        
+                        <!-- Piscine Projects Subsection -->
+                        <div class="piscine-projects">
+                            <!-- Shell Projects -->
+                            <div class="piscine-category">
+                                <h4>Shell Projects</h4>
+                                <div class="piscine-grid">
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">Shell00</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 100%;"></div>
+                                            <span class="piscine-percent">100%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- C Projects -->
+                            <div class="piscine-category">
+                                <h4>C Projects</h4>
+                                <div class="piscine-grid">
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">C00</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 85%;"></div>
+                                            <span class="piscine-percent">85%</span>
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">C01</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 100%;"></div>
+                                            <span class="piscine-percent">100%</span>
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">C02</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 75%;"></div>
+                                            <span class="piscine-percent">75%</span>
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">C03</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 100%;"></div>
+                                            <span class="piscine-percent">100%</span>
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">C04</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 70%;"></div>
+                                            <span class="piscine-percent">70%</span>
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">C05</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 80%;"></div>
+                                            <span class="piscine-percent">80%</span>
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">C06</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 100%;"></div>
+                                            <span class="piscine-percent">100%</span>
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">C07</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 60%;"></div>
+                                            <span class="piscine-percent">60%</span>
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">C08</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 70%;"></div>
+                                            <span class="piscine-percent">70%</span>
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">C09</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 100%;"></div>
+                                            <span class="piscine-percent">100%</span>
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">C11</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 50%;"></div>
+                                            <span class="piscine-percent">50%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Group Projects -->
+                            <div class="piscine-category">
+                                <h4>Group Projects (Rushes)</h4>
+                                <div class="piscine-grid">
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">Rush00</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 100%;"></div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">Rush01</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 100%;"></div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">Rush02</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 100%;"></div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Exams -->
+                            <div class="piscine-category">
+                                <h4>Exams</h4>
+                                <div class="piscine-grid">
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">Exam00</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 100%;"></div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">Exam01</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 100%;"></div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">Exam02</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 100%;"></div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="piscine-item">
+                                        <span class="piscine-name">Final Exam</span>
+                                        <div class="piscine-progress">
+                                            <div class="piscine-bar" style="width: 100%;"></div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Common Core Section -->
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>42 Common Core</h3>
+                    <span class="timeline-date">2025 - Present</span>
+                    <div class="timeline-details">
+						<ul>
+                            <li class="highlight">Selected as one of the top 50 candidates from a pool of 150+ participants in the competitive 42 Beirut Piscine, earning admission as a 42 student</li>
+                            <li>Completed projects and exams</li>
+                        </ul>
+                        <ul>
+                            <li>Project-based curriculum with peer learning</li>
+                        </ul>
+
+                        
+                        <div class="projects-section">
+                            <h5>Completed Projects:</h5>
+                            <div class="project-grid">
+                                <div class="project-item">
+                                    <span class="project-name">Libft</span>
+                                    <span class="project-desc">Custom C library</span>
+                                </div>
+                                <div class="project-item">
+                                    <span class="project-name">ft_printf</span>
+                                    <span class="project-desc">Custom printf</span>
+                                </div>
+                                <div class="project-item">
+                                    <span class="project-name">Get_Next_Line</span>
+                                    <span class="project-desc">File reading</span>
+                                </div>
+                                <div class="project-item">
+                                    <span class="project-name">Born2BeRoot</span>
+                                    <span class="project-desc">Linux VM</span>
+                                </div>
+                                <div class="project-item">
+                                    <span class="project-name">Push_Swap</span>
+                                    <span class="project-desc">Sorting algorithm</span>
+                                </div>
+                                <div class="project-item">
+                                    <span class="project-name">Pipex</span>
+                                    <span class="project-desc">UNIX pipes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Future Projects -->
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Upcoming Projects</h3>
+                    <span class="timeline-date">Future</span>
+                    <div class="timeline-details">
+                        <ul>
+							<li>so_long(2D navigation)</li>
+                            <li>Philosophers (Multithreading)</li>
+                            <li>Minishell (Bash clone)</li>
+                            <li>NetPractice (Networking)</li>
+                            <li>Cub3D (Raycasting game)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ALMANAR HIGH INSTITUTE -->
+<div class="timeline-item">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+        <h3>ALMANAR HIGH INSTITUTE</h3>
+		 <span class="timeline-date">2024 - 2025</span>
+        <div class="timeline-details">
+            <ul>
+                <li class="highlight">TS1 IT - Achieved 17.82/20</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- ALNOUR INSTITUTE -->
+<div class="timeline-item">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+        <h3>ALNOUR INSTITUTE</h3>
+        <span class="timeline-date">2021 - 2024</span>
+        <div class="timeline-details">
+            <ul>
+                <li><strong>Informal Technology Education:</strong></li>
+                <li>BT1 in Technology</li>
+                <li>BT2 in Technology</li>
+                <li><strong>Official Certificate:</strong></li>
+                <li class="highlight">BT3 in Technology - Achieved a high mark of 14.79</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Robotics Education -->
+<div class="timeline-item">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+        <h3>ROBOTICS</h3>
+        <span class="timeline-date">2018 - 2020</span>
+        <div class="timeline-details">
+            <h4>Union of Jabal Amel Region Municipalities</h4>
+            <ul>
+                <li>Programming Robot</li>
+                <li>Designing Robot</li>
+                <li class="highlight">First: Won 1st place over South Lebanon in X-Challenge tournament</li>
+                <li class="highlight">Second: Won 2nd place over Lebanon in the Nerd tournament (qualified for Arab Championship in Kuwait)</li>
+                <li class="highlight">Third: Won 4th place in the 2 X-Challenge tournaments</li>
+                <li class="highlight">Fourth: Won 1st place over Lebanon in the WRO tournament</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- 42 Projects Showcase -->
+    <div class="projects-showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🚀 42 Projects Showcase</h2>
+                <p class="section-subtitle">Mastering low-level programming through hands-on projects</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">📚</div>
+                    <h3>libft</h3>
+                    <p>Custom C library with essential functions like memset, strlen, and atoi - the foundation for all future projects.</p>
+                    <div class="project-tags">
+                        <span class="tag">C Programming</span>
+                        <span class="tag">Memory Management</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🖨️</div>
+                    <h3>libftprintf.a</h3>
+                    <p>Custom printf implementation handling various format conversions, mastering variadic functions.</p>
+                    <div class="project-tags">
+                        <span class="tag">Variadic Functions</span>
+                        <span class="tag">Format Parsing</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">📄</div>
+                    <h3>get_next_line</h3>
+                    <p>Efficient file reading function that processes files line by line using static variables.</p>
+                    <div class="project-tags">
+                        <span class="tag">File I/O</span>
+                        <span class="tag">Buffer Management</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🖥️</div>
+                    <h3>Born2beRoot</h3>
+                    <p>Virtual machine setup and Linux server configuration with security policies and system administration.</p>
+                    <div class="project-tags">
+                        <span class="tag">System Admin</span>
+                        <span class="tag">Security</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🔄</div>
+                    <h3>push_swap</h3>
+                    <p>Advanced sorting algorithm challenge using limited stack operations - one of 42's most complex projects.</p>
+                    <div class="project-tags">
+                        <span class="tag">Algorithms</span>
+                        <span class="tag">Optimization</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🔧</div>
+                    <h3>pipex</h3>
+                    <p>UNIX pipes and process management implementation, simulating shell command piping.</p>
+                    <div class="project-tags">
+                        <span class="tag">UNIX Programming</span>
+                        <span class="tag">Process Management</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="projects-progress">
+                <div class="progress-info">
+                    <h3>Progress: 6 Projects Completed</h3>
+                    <p>Continuously advancing through 42's comprehensive curriculum</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills & Experience Section -->
+    <div class="skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">💻 Skills & Experience</h2>
+                <p class="section-subtitle">2021 - Present | Comprehensive technology expertise</p>
+            </div>
+
+            <!-- Replace your existing skills-grid div with this enhanced version -->
+<!-- Replace your skills-grid div with this version -->
+<div class="skills-grid">
+    <div class="skill-category-card">
+        <div class="category-icon">🌐</div>
+        <h3>Web Development</h3>
+        <div class="skills-list">
+            <!-- HTML -->
+            <div class="skill-item">
+                <div class="skill-name">
+                    <span>HTML</span>
+                    <div class="skill-percent">95%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 95%; background: linear-gradient(90deg, #4ecdc4, #45b7d1);"></div>
+                </div>
+            </div>
+            
+            <!-- CSS -->
+            <div class="skill-item">
+                <div class="skill-name">
+                    <span>CSS</span>
+                    <div class="skill-percent">90%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 90%; background: linear-gradient(90deg, #4ecdc4, #45b7d1);"></div>
+                </div>
+            </div>
+            
+            <!-- SASS -->
+            <div class="skill-item">
+                <div class="skill-name">
+                    <span>SASS</span>
+                    <div class="skill-percent">85%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 85%; background: linear-gradient(90deg, #4ecdc4, #45b7d1);"></div>
+                </div>
+            </div>
+            
+            <!-- React.js -->
+            <div class="skill-item">
+                <div class="skill-name">
+                    <span>React.js</span>
+                    <div class="skill-percent">65%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%; background: linear-gradient(90deg, #4ecdc4, #45b7d1);"></div>
+                </div>
+                <div class="skill-note">Basic projects (Calculator, Todo List)</div>
+            </div>
+            
+            <!-- PHP -->
+            <div class="skill-item">
+                <div class="skill-name">
+                    <span>PHP</span>
+                    <div class="skill-percent">50%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%; background: linear-gradient(90deg, #4ecdc4, #45b7d1);"></div>
+                </div>
+                <div class="skill-note">Learning phase</div>
+            </div>
+            
+            <!-- Responsive Design -->
+            <div class="skill-item">
+                <div class="skill-name">
+                    <span>Responsive Design</span>
+                    <div class="skill-percent">85%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 85%; background: linear-gradient(90deg, #4ecdc4, #45b7d1);"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="skill-category-card">
+        <div class="category-icon">🗄️</div>
+        <h3>Database & Programming</h3>
+        <div class="skills-list">
+            <!-- C Programming -->
+            <div class="skill-item">
+                <div class="skill-name">
+                    <span>C Programming</span>
+                    <div class="skill-percent">88%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 88%; background: linear-gradient(90deg, #ff6b6b, #feca57);"></div>
+                </div>
+                <div class="skill-note">Memory management, pointers, algorithms, data structures, Makefile, 42 Piscine + 6 projects completed ..</div>
+            </div>
+            
+            <!-- MySQL -->
+            <div class="skill-item">
+                <div class="skill-name">
+                    <span>MySQL</span>
+                    <div class="skill-percent">80%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 80%; background: linear-gradient(90deg, #ff6b6b, #feca57);"></div>
+                </div>
+            </div>
+            
+            <!-- SQL -->
+            <div class="skill-item">
+                <div class="skill-name">
+                    <span>SQL</span>
+                    <div class="skill-percent">65%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%; background: linear-gradient(90deg, #ff6b6b, #feca57);"></div>
+                </div>
+            </div>
+            
+            <!-- Microsoft Access -->
+            <div class="skill-item">
+                <div class="skill-name">
+                    <span>Microsoft Access</span>
+                    <div class="skill-percent">60%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%; background: linear-gradient(90deg, #ff6b6b, #feca57);"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="skill-category-card">
+    <div class="category-icon">⚙️</div>
+    <h3>System & Networking</h3>
+    <div class="skills-list">
+        <!-- Add this new Terminal skill item -->
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>Terminal/Command Line</span>
+                <div class="skill-percent">85%</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 85%; background: linear-gradient(90deg, #96ceb4, #45b7d1);"></div>
+            </div>
+            <div class="skill-note">Linux shell, bash scripting, system administration</div>
+        </div>
+        
+        <!-- Linux Administration -->
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>Linux Administration</span>
+                <div class="skill-percent">75%</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%; background: linear-gradient(90deg, #96ceb4, #45b7d1);"></div>
+            </div>
+            <div class="skill-note">Born2BeRoot project</div>
+        </div>
+        
+        <!-- Networking -->
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>Networking</span>
+                <div class="skill-percent">70%</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 70%; background: linear-gradient(90deg, #96ceb4, #45b7d1);"></div>
+            </div>
+        </div>
+        
+        <!-- IT Practices -->
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>IT Practices</span>
+                <div class="skill-percent">80%</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 80%; background: linear-gradient(90deg, #96ceb4, #45b7d1);"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="social-section">
+            <h2>Connect With Me</h2>
+            <div class="social-links">
+                <a href="https://www.instagram.com/aly.aresllan/" class="social-link" target="_blank">
+                    <div class="social-icon instagram">📷</div>
+                    <span class="social-name">Instagram</span>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/ali-rida-5548a6357/" class="social-link" target="_blank">
+                    <div class="social-icon linkedin">💼</div>
+                    <span class="social-name">LinkedIn</span>
+                </a>
+                
+                <a href="https://facebook.com" class="social-link" target="_blank">
+                    <div class="social-icon facebook">👤</div>
+                    <span class="social-name">Facebook</span>
+                </a>
+                
+                <a href="https://youtube.com" class="social-link" target="_blank">
+                    <div class="social-icon youtube">▶️</div>
+                    <span class="social-name">YouTube</span>
+                </a>
+                
+                <a href="https://twitter.com" class="social-link" target="_blank">
+                    <div class="social-icon twitter">🐦</div>
+                    <span class="social-name">Twitter</span>
+                </a>
+                
+                <a href="https://github.com/ALYRIDA" class="social-link" target="_blank">
+                    <div class="social-icon github">💻</div>
+                    <span class="social-name">GitHub</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

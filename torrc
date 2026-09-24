@@ -1,0 +1,31 @@
+# Tor configuration for ft_onion hidden service
+# Essential configuration only
+
+# Basic Tor settings
+DataDirectory /var/lib/tor
+PidFile /var/run/tor/tor.pid
+    
+# Disable SOCKS proxy (not needed)
+SocksPort 0
+
+# Hidden service configuration for web server
+HiddenServiceDir /var/lib/tor/hidden_service/
+HiddenServicePort 80 127.0.0.1:80
+
+# SSH hidden service
+HiddenServiceDir /var/lib/tor/hidden_ssh/
+HiddenServicePort 4242 127.0.0.1:4242
+HiddenServicePort 22 127.0.0.1:4242
+
+# Security settings
+ExitPolicy reject *:*
+ExitRelay 0
+PublishServerDescriptor 0
+ClientOnly 1
+
+# Logging
+Log notice file /var/log/tor/tor.log
+
+# Security hardening
+SafeLogging 1
+ClientRejectInternalAddresses 1

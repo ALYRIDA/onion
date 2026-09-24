@@ -1,0 +1,32 @@
+# SSH daemon configuration for ft_onion project
+# Essential settings only
+
+# Port and protocol
+Port 4242
+# Protocol 2 (default in modern OpenSSH)
+
+# Host keys
+HostKey /etc/ssh/ssh_host_ed25519_key
+
+# Logging
+LogLevel INFO
+
+# Authentication
+PermitRootLogin no
+MaxAuthTries 3
+
+# Password authentication (enabled for ft_onion)
+PasswordAuthentication yes
+PermitEmptyPasswords no
+
+# User restrictions
+AllowUsers aareslan
+
+# Security basics & Fortification
+X11Forwarding no
+AllowTcpForwarding no
+UsePAM yes
+LoginGraceTime 60
+ClientAliveInterval 300
+ClientAliveCountMax 2
+IgnoreRhosts yes
