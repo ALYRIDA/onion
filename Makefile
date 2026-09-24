@@ -14,7 +14,7 @@ NAME			:= ft_onion
 CONTAINER_NAME	:= ft_onion_container
 IMAGE_NAME		:= ft_onion
 WEB_PORT		?= 8080
-SSH_PORT		?= 4242
+SSH_PORT		?= 2222
 SSH_USER		:= aareslan
 
 # Default target: build and launch container

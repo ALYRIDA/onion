@@ -22,7 +22,7 @@ case "$1" in
         docker stop $CONTAINER_NAME 2>/dev/null || true
         docker rm $CONTAINER_NAME 2>/dev/null || true
         docker build -t $IMAGE_NAME .
-        docker run -d --name $CONTAINER_NAME -p 8080:80 -p 4242:4242 $IMAGE_NAME
+        docker run -d --name $CONTAINER_NAME -p 8080:80 -p 2222:4242 $IMAGE_NAME
         sleep 3
         $0 status
         ;;
@@ -42,7 +42,7 @@ case "$1" in
         ;;
     
     ssh)
-        ssh -o StrictHostKeyChecking=no -p 4242 aareslan@localhost
+        ssh -o StrictHostKeyChecking=no -p 2222 aareslan@localhost
         ;;
     
     *)
